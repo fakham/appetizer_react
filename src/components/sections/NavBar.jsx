@@ -1,6 +1,6 @@
 import React from "react";
 
-const NavBar = () => {
+const NavBar = props => {
   return (
     <nav
       className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
@@ -24,27 +24,41 @@ const NavBar = () => {
 
         <div className="collapse navbar-collapse" id="ftco-nav">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item active">
+            <li
+              className={props.page === "Home" ? "nav-item active" : "nav-item"}
+            >
               <a href="index.html" className="nav-link">
                 Home
               </a>
             </li>
-            <li className="nav-item">
+            <li
+              className={
+                props.page === "About" ? "nav-item active" : "nav-item"
+              }
+            >
               <a href="about.html" className="nav-link">
                 About
               </a>
             </li>
-            <li className="nav-item">
+            <li
+              className={props.page === "Menu" ? "nav-item active" : "nav-item"}
+            >
               <a href="menu.html" className="nav-link">
                 Menu
               </a>
             </li>
-            <li className="nav-item">
+            <li
+              className={props.page === "Blog" ? "nav-item active" : "nav-item"}
+            >
               <a href="blog.html" className="nav-link">
                 Blog
               </a>
             </li>
-            <li className="nav-item">
+            <li
+              className={
+                props.page === "Contact" ? "nav-item active" : "nav-item"
+              }
+            >
               <a href="contact.html" className="nav-link">
                 Contact
               </a>

@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <>
       <Header />
-      <NavBar />
+      <NavBar page="Home" />
       <HomeSlider />
       <About />
       <Info />
