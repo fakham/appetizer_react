@@ -1,16 +1,16 @@
 import React from "react";
-import Header from "../components/common/Header";
-import NavBar from "../components/common/NavBar";
-import About from "../components/common/About";
+import Header from "../components/sections/Header";
+import NavBar from "../components/sections/NavBar";
+import About from "../components/sections/About";
 import HomeSlider from "../components/HomeSlider";
-import Info from "../components/common/Info";
-import Services from "../components/common/Services";
-import Menu from "../components/common/Menu";
-import Reservation from "../components/common/Reservation";
-import MasterChef from "../components/common/MasterChef";
-import Customers from "../components/common/Customers";
-import Images from "../components/common/Images";
-import Footer from "../components/common/Footer";
+import Info from "../components/sections/Info";
+import Services from "../components/sections/Services";
+import Menu from "../components/sections/Menu";
+import Reservation from "../components/sections/Reservation";
+import MasterChef from "../components/sections/MasterChef";
+import Customers from "../components/sections/Customers";
+import Images from "../components/sections/Images";
+import Footer from "../components/sections/Footer";
 
 const Home = () => {
   return (
