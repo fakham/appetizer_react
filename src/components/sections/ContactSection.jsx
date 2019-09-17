@@ -1,6 +1,6 @@
 import React from "react";
 
-const ContactForm = () => {
+const ContactSection = () => {
   return (
     <section className="ftco-section ftco-no-pt ftco-no-pb contact-section">
       <div className="container">
@@ -57,4 +57,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default ContactSection;
