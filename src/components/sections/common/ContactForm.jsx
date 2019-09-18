@@ -1,5 +1,6 @@
 import React from "react";
 import { withFormik } from "formik";
+import * as Yup from "yup";
 
 const ContactForm = props => {
   return (
@@ -80,24 +81,18 @@ export default withFormik({
     subject: "",
     message: ""
   }),
-  validate: values => {
-    const errors = {};
-
-    if (!values.name) {
-      errors.name = "Name is required";
-    }
-    if (!values.email) {
-      errors.email = "Email is required";
-    }
-    if (!values.subject) {
-      errors.subject = "Subject is required";
-    }
-    if (!values.message) {
-      errors.message = "Message is required";
-    }
-
-    return errors;
-  },
+  validationSchema: Yup.object().shape({
+    name: Yup.string().required("You must give us your name."),
+    email: Yup.string()
+      .email("Please enter a valid email.")
+      .required("Email is required!"),
+    subject: Yup.string()
+      .min(10, "Subject must have more than 10 characters")
+      .required("Type a subject"),
+    message: Yup.string()
+      .min(30, "Message is too short, write more than 30 characters")
+      .required("Message is required")
+  }),
   handleSubmit: (values, { setSubmitting }) => {
     alert("Thanks for contacting us!");
     console.log(values);

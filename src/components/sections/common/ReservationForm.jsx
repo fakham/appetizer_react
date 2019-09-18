@@ -1,5 +1,6 @@
 import React from "react";
 import { withFormik } from "formik";
+import * as Yup from "yup";
 
 const ReservationForm = props => {
   return (
@@ -143,19 +144,25 @@ export default withFormik({
     person: "",
     date: ""
   }),
-  validate: values => {
-    const errors = {};
-
-    if (!values.name) errors.name = "Name is required";
-    if (!values.date) errors.date = "Date is required";
-    if (!values.email) errors.email = "Email is required";
-    if (!values.phone) errors.phone = "Phone is required";
-    if (!values.time) errors.time = "Time is required";
-    if (!["1", "2", "3", "4+"].includes(values.person))
-      errors.person = "Persons number must be valid!";
-
-    return errors;
-  },
+  validationSchema: Yup.object().shape({
+    name: Yup.string().required("Name is required"),
+    phone: Yup.string()
+      .min(10, "Phone number must be more than 9 characters")
+      .max(15, "Phone number must be less than 15 characters")
+      .required("Phone number is required"),
+    email: Yup.string()
+      .email("Please enter a valid email")
+      .required("Email is required"),
+    time: Yup.string()
+      .length(5, "Time must have 5 charaters ex: (hh:mm)")
+      .required("Time is required"),
+    person: Yup.string()
+      .max(2, "Please select a correct number")
+      .required("Number of persons is required"),
+    date: Yup.string()
+      .length(10, "Please enter a valid date ex: (mm/dd/yyyy)")
+      .required("Date is required")
+  }),
   handleSubmit: (values, { setSubmitting }) => {
     alert("Thanks for your reservation!");
     console.log(values);
